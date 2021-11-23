@@ -16,11 +16,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-void	cal(int i, long int nbr, const char *base, int *len);
-void	ft_putnbr(int nb, int *len);
-void	ft_putnbrhex(unsigned int nb, int tst, int *len);
-void	ft_putnbruns(unsigned int nb, int len);
-void	printunsigned(unsigned long nb, int *len);
+void	cal(int i, int nbr, const char *base, int *len);
+void	printhex(unsigned int nb, int tst, int *len);
+void	printunsigned(unsigned int nb, int *len);
 void	printadress(unsigned long nb, int *len);
 int		ft_printf(const char *str, ...);
 
