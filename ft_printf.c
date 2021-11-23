@@ -66,7 +66,7 @@ void	printf_hex(const char *s, va_list list, int *len)
 		n = va_arg(list, unsigned int);
 		if (*s == 'x')
 			tst = 1;
-		ft_putnbrhex(n, tst, len);
+		printhex(n, tst, len);
 	}
 	else if (*s == 'p')
 	{
