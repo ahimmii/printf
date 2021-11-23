@@ -47,21 +47,32 @@ void	printadress(unsigned long nb, int *len)
 		*len += write(1, &hex[nb], 1);
 }
 
-void	printunsigned(unsigned long nb, int *len)
+void	printhex(unsigned int nb, int tst, int *len)
 {
+	if (nb >= 16)
+	{
+		printhex(nb / 16, tst, len);
+		printhex(nb % 16, tst, len);
+	}
+	else
+	{
+		if (tst == 0)
+			*len += write(1, &"0123456789ABCDEF"[nb], 1);
+		else if (tst == 1)
+			*len += write(1, &"0123456789abcdef"[nb], 1);
+	}
+}
+
+void	printunsigned(unsigned int nb, int *len)
+{
+	char	*n;
+
+	n = "0123456789";
 	if (nb >= 10)
 	{
 		printunsigned(nb / 10, len);
 		printunsigned(nb % 10, len);
 	}
 	else
-		*len += write(1, &"0123456789"[nb], 1);
-}
-
-void	ft_putnbrhex(unsigned int nb, int tst, int *len)
-{
-	if (tst == 0)
-		cal(16, nb, "0123456789ABCDEF", len);
-	else if (tst == 1)
-		cal(16, nb, "0123456789abcdef", len);
+		*len += write(1, &n[nb], 1);
 }
